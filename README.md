@@ -1,2 +1,2 @@
-Grocery. This is the test task for Inforce company.
+Grocery.This is my representation of grocery list on React + Redux.
 

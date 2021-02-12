@@ -1,0 +1,43 @@
+.logo-text {
+    color: #2d6a4f;
+    font-size: 25px;
+}
+
+.logo-text:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    color: #081c15;
+}
+
+.shoping-cart {
+    color:#2d6a4f;
+    font-size: 25px;
+}
+.shoping-cart:hover {
+    color:#081c15;
+}
+
+.header-search {
+    margin-top: 15%;
+}
+
+.search-grocery {
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    background-color: #95d5b2;
+    box-shadow: 1px 1px 1px 1px #74c69d;
+}
+
+.search-grocery:active {
+    background-color: #95d5b2;
+}
+
+.search-grocery:focus {
+    width: 500px;
+    transition: 0.3s;
+    background-color: #95d5b2;
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 2px 1px #74c69d;
+}
