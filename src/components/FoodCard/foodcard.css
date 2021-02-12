@@ -1,0 +1,23 @@
+.grocery-card {
+    background-color: #d8f3dc;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(183, 228, 199, 208);
+    width: 45%;
+    height: 100px;
+}
+
+.add-to-cart {
+    background-color: #2D6A4F;
+    border: none;
+    border-radius: 10px;
+}
+
+.add-to-cart:hover {
+    transition: 0.3s;
+    background-color: #95D5B2;
+}
+
+.add-to-cart:focus {
+    transition: 0.3s;
+    background-color: #95D5B2;
+}
