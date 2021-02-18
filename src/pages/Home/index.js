@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {useSelector} from 'react-redux';
+import SearchPanel from '../../components/SearchPanel';
+import AddForm from '../../components/AddForm';
 import FoodCard from '../../components/FoodCard';
 import {Row, Col, Navbar, NavbarBrand} from 'reactstrap';
 import {Link} from 'react-router-dom';
@@ -6,16 +9,18 @@ import WithShopService from '../../components/hoc';
 import './home.css';
 
 
-class Home extends Component {
+const Home = () =>  {
 
-    componentDidMount() {
-        const {ShopService} = this.props;
-        ShopService.getShopItems()
-        .then(res => console.log(res))
-    }
+    
 
+        const foodItems =  useSelector(state => state.foodReducer.food);
 
-    render () {
+        const content = foodItems.map((foodItem) => {
+            return <FoodCard
+                key={foodItem.id}
+                foodItem={foodItem}
+            />
+        })
 
         return (
             <>
@@ -29,15 +34,20 @@ class Home extends Component {
                 </Navbar>
                 <Row className='header-search'>
                     <Col xs='12' className='d-flex justify-content-center'>
-                        <input type='text' className='form-control search-grocery' placeholder='Enter a grocery to find'/>
+                        <SearchPanel/>
                     </Col>
                 </Row>
                 <Row className='cards-block'>
-                    <FoodCard/>
+                    {content}
+                </Row>
+
+                <Row className='grocery__addform'>
+                    <Col xs='12' className='d-flex justify-content-center'>
+                        <AddForm/>
+                    </Col>
                 </Row>
             </> 
         )
-    }
 
 }
 

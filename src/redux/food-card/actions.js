@@ -1,0 +1,1 @@
+export const changeStatus = (id) => ({type: 'CHANGE_STATUS', payload: id});

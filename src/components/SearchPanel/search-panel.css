@@ -1,0 +1,38 @@
+.search-form-wrapper {
+    display: flex;
+}
+
+.search-panel-btns {
+    background-color: #2D6A4F;
+    border: none;
+    border-radius: 0px;
+}
+
+.search-panel-btns:hover {
+    transition: 0.3s;
+    background-color:#95D5B2;
+}
+
+.search-panel-btns:focus {
+    transition: 0.3s;
+    background-color:#95D5B2;
+}
+
+.search-grocery {
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+    background-color: #95d5b2;
+    box-shadow: 1px 1px 1px 1px #74c69d;
+}
+
+.search-grocery:active {
+    background-color: #95d5b2;
+}
+
+.search-grocery:focus {
+    background-color: #95d5b2;
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 2px 1px #74c69d;
+}
