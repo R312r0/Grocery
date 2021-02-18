@@ -4,3 +4,4 @@ export const DELETE_FROM_CART = 'DELETE_FROM_CART';
 
 
 export * from './cart/actions';
+export * from './food-card/actions';
