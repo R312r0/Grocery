@@ -1,3 +1,5 @@
+import { deleteFromStore } from "./actions";
+
 const INIT_STATE = {
     food: [
         {id: 1, name: 'Carrot', exist: true, price: '5'},
@@ -9,10 +11,12 @@ const INIT_STATE = {
 
 const foodReducer = (state=INIT_STATE, action) => {
 
+    const id = action.payload;
+
     switch (action.type) {
         case 'CHANGE_STATUS':
 
-          const id = action.payload;
+          
           const itemIndex = state.food.findIndex(item => item.id === id)
           const item = state.food[itemIndex];
 
@@ -31,6 +35,16 @@ const foodReducer = (state=INIT_STATE, action) => {
               newItem,
               ...state.food.slice(itemIndex + 1)
           ]};
+        case 'DELETE_FROM_STORE':
+            const deleteItemIndex = state.food.findIndex(item => item.id === id);
+            
+            return {
+                ...state,
+                food: [
+                    ...state.food.slice(0, deleteItemIndex),
+                    ...state.food.slice(deleteItemIndex + 1)
+                ]
+            }
 
         default:
             return state;
