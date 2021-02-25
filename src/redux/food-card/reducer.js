@@ -8,7 +8,8 @@ const INIT_STATE = {
     ],
     addFormText: '',
     addFormPrice: '0',
-    searchTerm: ''
+    searchTerm: '', 
+    filter: 'all',
     
 }
 
@@ -86,7 +87,12 @@ const foodReducer = (state=INIT_STATE, action) => {
                 ...state,
                 searchTerm: action.payload
             }
-
+        case 'CHANGE_FILTER':
+            
+            return {
+                ...state,
+                filter: action.payload
+            }
         default:
             return state;
     }

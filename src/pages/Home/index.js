@@ -12,7 +12,7 @@ import './home.css';
 const Home = () =>  {
 
 
-        const searchPost = (items, term) => {
+        const searchFood = (items, term) => {
             if (term.length === 0) {
                 return items 
             }
@@ -22,11 +22,22 @@ const Home = () =>  {
             })
         }
 
+        const filterFood = (items, filter) => {
+            if (filter === 'exist') {
+                return items.filter(item => item.exist)
+            }
+            else if (filter === 'missing') {
+                return items.filter(item => !item.exist)
+            } else {
+                return items
+            }
+        }
+
         const foodItems =  useSelector(state => state.foodReducer.food);
         const term = useSelector(state => state.foodReducer.searchTerm);
+        const filter = useSelector(state => state.foodReducer.filter);
 
-
-        const visibleItems = searchPost(foodItems, term);
+        const visibleItems = filterFood(searchFood(foodItems, term), filter);
 
 
         return (
