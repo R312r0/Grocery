@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {useSelector} from 'react-redux';
 import SearchPanel from '../../components/SearchPanel';
 import AddForm from '../../components/AddForm';
-import FoodCard from '../../components/FoodCard';
+import FoodCardsList from '../../components/FoodCardsList';
 import {Row, Col, Navbar, NavbarBrand} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import WithShopService from '../../components/hoc';
@@ -11,16 +11,23 @@ import './home.css';
 
 const Home = () =>  {
 
-    
+
+        const searchPost = (items, term) => {
+            if (term.length === 0) {
+                return items 
+            }
+
+            return items.filter((item) => {
+                return item.name.indexOf(term) > -1
+            })
+        }
 
         const foodItems =  useSelector(state => state.foodReducer.food);
+        const term = useSelector(state => state.foodReducer.searchTerm);
 
-        const content = foodItems.map((foodItem) => {
-            return <FoodCard
-                key={foodItem.id}
-                foodItem={foodItem}
-            />
-        })
+
+        const visibleItems = searchPost(foodItems, term);
+
 
         return (
             <>
@@ -38,7 +45,7 @@ const Home = () =>  {
                     </Col>
                 </Row>
                 <Row className='cards-block'>
-                    {content}
+                    <FoodCardsList foodItems={visibleItems}/>
                 </Row>
 
                 <Row className='grocery__addform'>

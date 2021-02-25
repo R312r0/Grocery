@@ -5,9 +5,10 @@ const INIT_STATE = {
         {id: 2, name: 'Banana', exist: true, price: '10'},
         {id: 3, name: 'Bread', exist: true, price: '2.5'}
 
-    ], 
+    ],
     addFormText: '',
-    addFormPrice: '0'
+    addFormPrice: '0',
+    searchTerm: ''
     
 }
 
@@ -78,6 +79,12 @@ const foodReducer = (state=INIT_STATE, action) => {
             return {
                 ...state,
                 addFormPrice: action.payload
+            }
+        case 'CHANGE_TERM':
+
+            return {
+                ...state,
+                searchTerm: action.payload
             }
 
         default:
