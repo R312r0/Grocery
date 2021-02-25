@@ -1,4 +1,3 @@
-import { deleteFromStore } from "./actions";
 
 const INIT_STATE = {
     food: [
@@ -6,7 +5,9 @@ const INIT_STATE = {
         {id: 2, name: 'Banana', exist: true, price: '10'},
         {id: 3, name: 'Bread', exist: true, price: '2.5'}
 
-    ]
+    ], 
+    addFormText: ''
+    
 }
 
 const foodReducer = (state=INIT_STATE, action) => {
@@ -44,6 +45,29 @@ const foodReducer = (state=INIT_STATE, action) => {
                     ...state.food.slice(0, deleteItemIndex),
                     ...state.food.slice(deleteItemIndex + 1)
                 ]
+            }
+
+        case 'ADD_TO_STORE':
+
+            const newProduct = {
+                id: `_${Math.random().toString(36).substr(2, 9)}`,
+                name: "New item",
+                exist: true,
+                price: "100"
+            }
+
+            return {
+                ...state,
+                food: [
+                    ...state.food,
+                    newProduct
+                ],
+                addFormText: ''
+            }
+        case 'CHANGE_INPUT_TEXT':
+            return {
+                ...state,
+                addFormText: action.payload
             }
 
         default:
