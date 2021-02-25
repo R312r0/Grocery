@@ -6,7 +6,8 @@ const INIT_STATE = {
         {id: 3, name: 'Bread', exist: true, price: '2.5'}
 
     ], 
-    addFormText: ''
+    addFormText: '',
+    addFormPrice: '0'
     
 }
 
@@ -51,9 +52,9 @@ const foodReducer = (state=INIT_STATE, action) => {
 
             const newProduct = {
                 id: `_${Math.random().toString(36).substr(2, 9)}`,
-                name: "New item",
+                name: action.payload.name,
                 exist: true,
-                price: "100"
+                price: action.payload.price
             }
 
             return {
@@ -62,12 +63,21 @@ const foodReducer = (state=INIT_STATE, action) => {
                     ...state.food,
                     newProduct
                 ],
-                addFormText: ''
+                addFormText: '',
+                addFormPrice: '0',
             }
         case 'CHANGE_INPUT_TEXT':
+
             return {
                 ...state,
                 addFormText: action.payload
+            }
+
+        case 'CHANGE_INPUT_PRICE':
+
+            return {
+                ...state,
+                addFormPrice: action.payload
             }
 
         default:
