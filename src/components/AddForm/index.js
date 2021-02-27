@@ -24,7 +24,10 @@ function AddForm(props) {
 
     function onSubmitAddForm (e) {
         e.preventDefault();
-        ShopService.addShopItems(inputValue, inputValuePrice);
+        dispatch(addToStore({
+            title: inputValue,
+            price: inputValuePrice
+        }));
     }
 
     return (

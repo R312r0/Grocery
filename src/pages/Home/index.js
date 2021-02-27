@@ -40,14 +40,13 @@ function Home(props) {
             const foodList = await ShopService.getShopItems();
             dispatch(listLoaded(foodList));
         }
-        // console.log(props.ShopService);
 
 
         const foodItems =  useSelector(state => state.foodReducer.food);
 
         useEffect(() => {
             fetchList();
-        }, [foodItems]);
+        }, []);
             
         console.log(foodItems);
 
