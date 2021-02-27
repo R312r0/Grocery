@@ -1,29 +1,52 @@
 {
-	"shop": [
-		{
-			"title": "Carrot",
-			"price": 12,
-			"id": 1
-		},
-		{
-			"title": "Bread",
-			"price": 10,
-			"id": 2
-		},
-		{
-			"title": "Eggs (10)",
-			"price": 13,
-			"id": 3
-		},
-		{
-			"title": "Mineral water (0,5 L)",
-			"price": 8,
-			"id": 4
-		},
-		{
-			"title": "Cake",
-			"price": 25,
-			"id": 5
-		}
-	]
+  "shop": [
+    {
+      "title": "Carrot",
+      "exist": true,
+      "price": 12,
+      "id": 1
+    },
+    {
+      "title": "Bread",
+      "exist": true,
+      "price": 10,
+      "id": 2
+    },
+    {
+      "title": "Eggs (10)",
+      "exist": true,
+      "price": 13,
+      "id": 3
+    },
+    {
+      "title": "Mineral water (0,5 L)",
+      "exist": true,
+      "price": 8,
+      "id": 4
+    },
+    {
+      "title": "Cake",
+      "exist": true,
+      "price": 25,
+      "id": 5
+    },
+    {
+      "title": "Chiken",
+      "exist": true,
+      "price": "50",
+      "id": "_urpzwu7v7"
+    },
+    {
+      "title": "Hurma",
+      "exist": true,
+      "price": "12",
+      "id": "_fsa9c5zf7"
+    },
+    {
+      "title": "Onion",
+      "exist": true,
+      "price": "2.50",
+      "id": "_dax2hqge4"
+    }
+  ]
 }

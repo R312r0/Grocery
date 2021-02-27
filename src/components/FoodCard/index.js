@@ -4,7 +4,9 @@ import {changeStatus, deleteFromStore} from '../../redux/actions';
 import './food-card.scss';
 const FoodCard = ({foodItem}) => {
 
-    const {id, name, exist, price} = foodItem;
+    console.log(foodItem);
+
+    const {id, title, exist, price} = foodItem;
 
     const dispatch = useDispatch();
 
@@ -20,7 +22,7 @@ const FoodCard = ({foodItem}) => {
 
     return (
         <>
-            <span> {name} ({exist ? 'Exist' : 'Missing'})</span>
+            <span> {title} ({exist ? 'Exist' : 'Missing'})</span>
             <div className='button-block'>
 
                 <button onClick={() => onChangeStatus(id)}>{exist ? 'Missing' : 'Exist'}<i className={iconClassName}></i></button>

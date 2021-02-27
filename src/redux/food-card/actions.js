@@ -1,3 +1,5 @@
+export const listRequested = () => ({type: 'LIST_REQUESTED'});
+export const listLoaded = (newList) => ({type: 'LIST_LOADED', payload: newList});
 export const changeStatus = (id) => ({type: 'CHANGE_STATUS', payload: id});
 export const deleteFromStore = (id) => ({type: 'DELETE_FROM_STORE', payload: id});
 export const addToStore = (obj) => ({type: 'ADD_TO_STORE', payload: obj});

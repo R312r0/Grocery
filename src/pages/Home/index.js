@@ -1,5 +1,6 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {listRequested, listLoaded} from '../../redux/actions';
 import Header from '../../components/Header';
 import SearchPanel from '../../components/SearchPanel';
 import AddForm from '../../components/AddForm';
@@ -8,8 +9,9 @@ import WithShopService from '../../components/hoc';
 import './home.scss';
 
 
-const Home = () =>  {
+function Home(props) {
 
+        const dispatch = useDispatch();
 
         const searchFood = (items, term) => {
             if (term.length === 0) {
@@ -17,7 +19,7 @@ const Home = () =>  {
             }
 
             return items.filter((item) => {
-                return item.name.indexOf(term) > -1
+                return item.title.indexOf(term) > -1
             })
         }
 
@@ -32,7 +34,25 @@ const Home = () =>  {
             }
         }
 
+        const {ShopService} = props;
+
+        const fetchList = async () => {
+            const foodList = await ShopService.getShopItems();
+            dispatch(listLoaded(foodList));
+        }
+        // console.log(props.ShopService);
+
+
         const foodItems =  useSelector(state => state.foodReducer.food);
+
+        useEffect(() => {
+            fetchList();
+        }, [foodItems]);
+            
+        console.log(foodItems);
+
+
+        
         const term = useSelector(state => state.foodReducer.searchTerm);
         const filter = useSelector(state => state.foodReducer.filter);
 

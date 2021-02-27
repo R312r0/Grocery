@@ -6,7 +6,7 @@ import './search-panel.scss';
 export default function SearchPanel () {
 
 
-    const inputValue = useSelector(state => state.foodReducer.searchTerm)
+
 
     const dispatch = useDispatch();
 

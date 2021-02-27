@@ -1,12 +1,13 @@
 import React from 'react';
 import {addToStore, changeInputValue, changeInputPrice} from '../../redux/actions';
 import {useDispatch, useSelector} from 'react-redux';
+import WithShopService from '../../components/hoc';
 
 import './add-form.scss';
 
-export default function AddForm() {
+function AddForm(props) {
     
-
+    const {ShopService} = props;
 
     const dispatch = useDispatch();
 
@@ -23,10 +24,7 @@ export default function AddForm() {
 
     function onSubmitAddForm (e) {
         e.preventDefault();
-        dispatch(addToStore({
-            name: inputValue,
-            price: inputValuePrice
-        }));
+        ShopService.addShopItems(inputValue, inputValuePrice);
     }
 
     return (
@@ -49,3 +47,5 @@ export default function AddForm() {
     )
 
 }
+
+export default WithShopService()(AddForm);
