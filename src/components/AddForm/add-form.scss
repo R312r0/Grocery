@@ -1,0 +1,12 @@
+$fontColor: #1d3557;
+
+.add-form {
+    display: grid;
+    grid-template-columns: 10fr 1fr 2fr;
+    grid-gap: 20px;
+
+    .price-input {
+        width: 50px;
+    }
+
+}

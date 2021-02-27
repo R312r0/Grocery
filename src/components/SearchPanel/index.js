@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {changeTerm, changeFilter} from '../../redux/actions';
-import './search-panel.css';
+import './search-panel.scss';
 
 export default function SearchPanel () {
 
@@ -20,11 +20,11 @@ export default function SearchPanel () {
 
 
     return (
-        <div className='search-form-wrapper'>
-            <input type='text' className='form-control search-grocery' placeholder='Enter a grocery to find' onChange={onChangeStatus}/>
-            <button onClick={() => onChangeFilter('exist')} className='btn btn-success search-panel-btns ml-3'> Exist </button>
-            <button onClick={() => onChangeFilter('missing')} className='btn btn-success search-panel-btns'> Missing </button>
-            <button onClick={() => onChangeFilter('all')} className='btn btn-success search-panel-btns'> All </button>
+        <div className='search-panel'>
+            <input type='text' placeholder='Enter a grocery to find' onChange={onChangeStatus}/>
+            <button onClick={() => onChangeFilter('exist')}> Exist </button>
+            <button onClick={() => onChangeFilter('missing')}> Missing </button>
+            <button onClick={() => onChangeFilter('all')}> All </button>
         
         </div>
     )

@@ -1,0 +1,16 @@
+$fontColor: #1d3557; 
+.header {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    justify-items: self-end;
+    grid-gap: 50px;
+
+    a {
+        color: $fontColor;
+        font-size: 20px;
+    }
+    h1 {
+        color: $fontColor;
+    }
+}

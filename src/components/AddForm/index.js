@@ -2,7 +2,7 @@ import React from 'react';
 import {addToStore, changeInputValue, changeInputPrice} from '../../redux/actions';
 import {useDispatch, useSelector} from 'react-redux';
 
-import './add-form.css';
+import './add-form.scss';
 
 export default function AddForm() {
     
@@ -30,19 +30,22 @@ export default function AddForm() {
     }
 
     return (
-        <div className='form-wrapper'>
             <form className='add-form' onSubmit={onSubmitAddForm}>
-                <input type='text' onChange={onTextChange} className='form-control add-grocery' placeholder='Enter grocery name to add'
+                <input type='text'
+                className='name-input' 
+                onChange={onTextChange} 
+                placeholder='Enter grocery name to add'
                 value={inputValue}
                 required
                 />
-                <input type='number' className='form-control add-grocery-price' placeholder='Enter price' 
+                <input type='number'
+                className='price-input'  
+                placeholder='$' 
                 value={inputValuePrice}
                 onChange={onPriceChange}
                 required/>
-                <button type='submit' className='btn btn-success add-grocery-button ml-5'> Add </button>
+                <button type='submit'> Add </button>
             </form>
-        </div>
     )
 
 }
